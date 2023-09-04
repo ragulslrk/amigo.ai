@@ -1,0 +1,6 @@
+1) step-1
+-> npx create-next-app@latest amigo.ai --typescript --eslint --tailwind(run this command in the  terminal)
+2)step-2
+->run this command (npm run dev)
+3) step-3
+->run this cmd to install shadcn ui(npx shadcn-ui@latest init)
