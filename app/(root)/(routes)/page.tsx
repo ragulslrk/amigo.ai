@@ -1,24 +1,17 @@
-import { UserButton } from "@clerk/nextjs";
-import { Navbar } from "@/components/navbar";
-// import { Sidebar } from "@/components/sidebar";
-// import { checkSubscription } from "@/lib/subscription";
+ import SearchBar from "@/components/searchBar";
+ import prismadb from "@/lib/prismadb";
+ import  Category from "@/components/category";
 
-const RootLayout = async ({
-  children
-}: {
-  children: React.ReactNode;
-}) => {
-  
-
-  return ( 
-    <div className="h-full">
-      <Navbar  />
+const RootPage = async() => {
+  const  category_data=await  prismadb.category.findMany()
+// console.log(category_data)
+  return ( <>
+    <div className="h-full p-4 space-y-2">
+      <SearchBar />
+      <Category data={category_data}/>
     
-      <main className="md:pl-20 pt-16 h-full">
-        {children}
-      </main>
     </div>
-   );
+  </> );
 }
  
-export default RootLayout;
+export default RootPage;

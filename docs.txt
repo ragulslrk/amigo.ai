@@ -4,3 +4,15 @@
 ->run this command (npm run dev)
 3) step-3
 ->run this cmd to install shadcn ui(npx shadcn-ui@latest init)
+
+Prisma documentation 
+step1-> npm i -D prisma
+step2->npx prisma init
+step3->npx prisma generate(use this everytimr when you change anything in schema.prisma)
+
+
+Steps to get rid of clerk auth:
+1)npm uninstall @clerk/nextjs    
+2)npm install @clerk/nextjs@4.23.2
+3)npm uninstall next
+4)npm install next@13.4.12(takes too long time,it literally sucks😪😪)
