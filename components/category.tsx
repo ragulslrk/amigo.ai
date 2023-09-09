@@ -1,13 +1,13 @@
 "use client";
 
 import qs from "query-string";
-import { Categories } from "@prisma/client"
+import { Category } from "@prisma/client"
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
 interface categoryType{
-    data:Categories[]
+    data:Category[]
 }
 const Category = ({data}:categoryType) => {
     const  router=useRouter()
