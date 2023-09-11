@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from '@/components/ui/toaster';
+import { ProModal } from "@/components/proModal"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -22,6 +24,7 @@ export default function RootLayout({
     
       <body className={inter.className}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ProModal />
         {children}
         <Toaster />
         </ThemeProvider>
