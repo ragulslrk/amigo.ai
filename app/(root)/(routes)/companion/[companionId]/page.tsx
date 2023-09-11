@@ -1,3 +1,4 @@
+import { auth,redirectToSignIn } from "@clerk/nextjs";
 import Companionform from "./components/companionForm";
 import prismadb from "@/lib/prismadb";
 
@@ -8,10 +9,18 @@ interface companionPropsType{
 }
 
 const CompanionIDComponent = async({params}:companionPropsType) => {
+
+    //get cuurent user 
+  const { userId } = auth();
+
+  if (!userId) {
+    return redirectToSignIn();
+  }
     //getting  comapanion  data from prisma if compaionId exist 
     const companion_data=await prismadb.companion.findUnique({
         where:{
-            id:params.companionId
+            id:params.companionId,
+            userId
         }
     })
     // getting  categories data (used for select category dropdown)
