@@ -35,7 +35,7 @@ model Companion {
 
   category      Category @relation(fields: [categoryId], references: [id])
   categoryId    String
-  isDefaultAssistant Boolean @default(true)
+  isDefaultAssistant Boolean @default(false)
   messages      Message[]
 
   @@index([categoryId])
