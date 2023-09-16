@@ -65,12 +65,11 @@ export async function POST(
     }
     await memoryManager.writeToHistory("User: " + prompt + "\n", companionKey);
 
-    // Query Pinecone
+    
 
     const recentChatHistory = await memoryManager.readLatestHistory(companionKey);
 
-    // Right now the preamble is included in the similarity search, but that
-    // shouldn't be an issue
+    
 
     const similarDocs = await memoryManager.vectorSearch(
       recentChatHistory,
@@ -82,7 +81,7 @@ export async function POST(
       relevantHistory = similarDocs.map((doc) => doc.pageContent).join("\n");
     }
     const { handlers } = LangChainStream();
-    // Call Replicate for inference
+    
     const model = new Replicate({
       model:
         "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
